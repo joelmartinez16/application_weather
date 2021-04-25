@@ -39,11 +39,28 @@ function fiveDayForeCast(lat,lon) {
 }
 
 function forecast(daily) {
+   
     console.log(daily[0].temp.day)
     var day1Temp= document.getElementById("day1Temp")
     day1Temp.textContent=daily[0].temp.day
     var day1Humidity= document.getElementById("day1Humidity")
     day1Humidity.textContent=daily[0].humidity
+    var day2Temp= document.getElementById("day2Temp")
+    day2Temp.textContent=daily[1].temp.day
+    var day2Humidity= document.getElementById("day2Humidity")
+    day2Humidity.textContent=daily[1].humidity
+    var day3Temp= document.getElementById("day3Temp")
+    day3Temp.textContent=daily[2].temp.day
+    var day3Humidity= document.getElementById("day3Humidity")
+    day3Humidity.textContent=daily[2].humidity
+    var day4Temp= document.getElementById("day4Temp")
+    day4Temp.textContent=daily[3].temp.day
+    var day4Humidity= document.getElementById("day4Humidity")
+    day4Humidity.textContent=daily[3].humidity
+    var day5Temp= document.getElementById("day5Temp")
+    day5Temp.textContent=daily[4].temp.day
+    var day5Humidity= document.getElementById("day5Humidity")
+    day5Humidity.textContent=daily[4].humidity
 
 
 }
@@ -78,7 +95,7 @@ function searchHistory() {
 }
 
 function displayWeather(data){
-    moment.unix(daily[0]["dt"].format("MM/DD/YYYY"));
+    // moment.unix(daily[0]["dt"].format("MM/DD/YYYY"));
     var temperature= document.getElementById("temperature");
     temperature.textContent=data.current.temp;
     var humidity= document.getElementById("humidity");
