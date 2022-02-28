@@ -6,97 +6,91 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- JavaScript Bundle with Popper -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="./assets/style.css" />
-    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href= "assets/reset.css" />
+    <link rel="stylesheet" href= "assets/style.css" />
+    <link rel= "stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous"/>
+    <title>Weather Dashboard</title>
 </head>
 
 <body>
-    <div class="row">
-        <div id="forcast" class="col-md-3">
-            <div id="searchColumn">
-                <div id="searchRow" class="row">
-                    <input id="search"></input>
-                    <button id="searchBtn" type="button" class="btn btn-success">Search</button>
+    <nav class="navbar navbar-light bg-light fixed-top">
+        <div class="container-fluid">
+            <a class="text-info navbar-brand" href="index.html">Weather Dashboard<i class="fas fa-sun"></i></a> 
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="sidebar bg-light hide"> <!-- Side bar. Added hide class for media query in CSS -->
+                <ul class="nav nav-sidebar">
+                    <div class="history-list list-group">
+                        <br>
+                        <p class="text-center">HISTORY</p>
+                        <!-- This is where the history will be appended -->
+                    </div>
+                    <!-- This is where the clear button will be appended -->
+                    <div class= "clear-btn-location list-group"></div>
+                </ul>
+            </div>
+            <div class="col-sm-12 main"> <!-- Main page -->
+                <br><br><br><br>
+                <form class="d-flex">
+                    <input class="inputForm form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="searchBtn btn btn-light" type="submit">Search</button>
+                </form>
+                <br>
+                <div>
+                    <p class="welcomeText h2 text-center text-info">Welcome to Weather Dashboard!</p>
+                    <p class="welcomeText h2 text-center text-info">Search a city to get started.</p>
                 </div>
-                    <h3>Search History</h3>
-                <div id="searchHistory" class="row">
-            
+                <div class="card w-100 h-80 text-center"> <!-- Main card for general city and weather info -->
+                    <div class="card-body">
+                      <h3 class="text-info card-text card-title"><span class="citySpan"></span><i class="fas fa-map-marker-alt fa-sm"></i><span class="dateSpan"></span></h3>
+                      <p class="card-text">Temperature:<span class="tempSpan"></span>degrees F<i class="fas fa-thermometer-quarter fa-lg"></i></p>
+                      <p class="card-text">Humidity:<span class="humiditySpan"></span>%</p>
+                      <p class="card-text">Wind Speed:<span class="windSpan"></span>miles / hour</p>
+                    </div>
                 </div>
+                <br>
             </div>
         </div>
-        <div class="col-md-9">
-            <div id="currentForecast" class="row">
-                <div class="card"> 
-                    <h1 class="card-title" id="forecast-title">Atlanta (8/15/2019) ☁️ </h1>
-                    <div>Temperature:
-                        <span id="temperature"></span>
-                    </div>
-                    <div>Humidity:
-                        <span id="humidity"></span>
-                    </div>
-                    <div>Wind Speed:
-                        <span id="windSpeed"></span>
-                    </div>
-                    <div> UV Index:
-                        <span id="uvIndex"></span>
-                    </div>
-                </div>
-
+        <div class="containerBlock"> <!-- 5 day forecast -->
+            <div class="main">
+                <p class="day1">Date</p>
+                <img class="day1Icon" alt="Weather icon">
+                <br><br>
+                <p class="day1Temp">Temp</p>
             </div>
-            <div id="fiveDayForecast" class="row">
-              
-                <div class="card">
-                    <div class="col-md-2 panel panel-default">
-                        <div class="panel-heading">Monday</div>
-                        <div class="panel-body">
-                            <div id="day1">
-                                <p>Temp:<span id="day1Temp"></span></p>
-                                <p>Humidity:<span id="day1Humidity"></span></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-2 panel panel-default">
-                        <div class="panel-heading">Tuesday</div>
-                        <div class="panel-body">
-                            <div id="day2">
-                                <p>Temp:<span id="day2Temp"></span></p>
-                                <p>Humidity:<span id="day2Humidity"></span></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-2 panel panel-default">
-                        <div class="panel-heading">Wedesday</div>
-                        <div class="panel-body">
-                            <div id="day3">
-                                <p>Temp:<span id="day3Temp"></span></p>
-                                <p>Humidity:<span id="day3Humidity"></span></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-2 panel panel-default">
-                        <div class="panel-heading">Thursday</div>
-                        <div class="panel-body">
-                            <div id="day4">
-                                <p>Temp:<span id="day4Temp"></span></p>
-                                <p>Humidity:<span id="day4Humidity"></span></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-2 panel panel-default">
-                        <div class="panel-heading">Friday</div>
-                        <div class="panel-body">
-                            <div id="day5">
-                                <p>Temp:<span id="day5Temp"></span></p>
-                                <p>Humidity:<span id="day5Humidity"></span></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div>
+                <p class="day2">Date</p>
+                <img class="day2Icon" alt="Weather icon">
+                <br><br>
+                <p class="day2Temp">Temp</p>
+            </div>
+            <div>
+                <p class="day3">Date</p>
+                <img class="day3Icon" alt="Weather icon">
+                <br><br>
+                <p class="day3Temp">Temp</p>
+            </div>
+            <div>
+                <p class="day4">Date</p>
+                <img class="day4Icon" alt="Weather icon">
+                <br><br>
+                <p class="day4Temp">Temp</p>
+            </div>
+            <div>
+                <p class="day5">Date</p>
+                <img class="day5Icon" alt="Weather icon">
+                <br><br>
+                <p class="day5Temp">Temp</p>
             </div>
         </div>
     </div>
-    <script src="assets/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src = "https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src = "assets/script.js"></script>
 </body>
 
 </html>
